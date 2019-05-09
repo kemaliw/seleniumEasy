@@ -10,22 +10,22 @@ public class DriverManager {
 
     private static WebDriver driver;
 
-    private DriverManager(){
+    private DriverManager() {
 
     }
 
-    public static WebDriver getWebDriver(){
-        if (driver==null){
-            driver= BrowserFactory.getBrowser(LocalWebDriverProperties.getLocalBrowser());
+    public static WebDriver getWebDriver() {
+        if (driver == null) {
+            driver = BrowserFactory.getBrowser(LocalWebDriverProperties.getLocalBrowser());
         }
         return driver;
     }
 
-    public static void disposeDriver(){
+    public static void disposeDriver() {
         driver.close();
-        if (!LocalWebDriverProperties.getLocalBrowser().equals(BrowserType.FIREFOX)){
+        if (!LocalWebDriverProperties.getLocalBrowser().equals(BrowserType.FIREFOX)) {
             driver.quit();
         }
-        driver=null;
+        driver = null;
     }
 }
