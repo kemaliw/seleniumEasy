@@ -1,8 +1,13 @@
 package configuration;
 
-import sun.security.krb5.Config;
+import browser.BrowserType;
 
 public class LocalWebDriverProperties {
+
+    //Get browser
+    public static BrowserType getLocalBrowser(){
+        return BrowserType.valueOf(ConfigurationProperties.getProperties().getProperty("local.browser"));
+    }
 
     //Get Chrome location
     public static String getChromeWebDriverLocation(){
